@@ -1,6 +1,19 @@
-import ReactDom from "react-dom";
+import NavBar from "./NavBar";
+import Corpo from "./Corpo";
 
-export default function FundoMobile(){
+
+export default function App() {
+  return (
+    <div>
+      <NavBar />
+      <Corpo />
+      <FundoMobile/>
+    </div>
+  )
+}
+
+
+function FundoMobile(){
     return(   
     <div class="fundo-mobile">
     <ion-icon name="home"></ion-icon>
@@ -11,5 +24,3 @@ export default function FundoMobile(){
   </div>
     )
 }
-
-
