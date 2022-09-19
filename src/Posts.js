@@ -24,7 +24,7 @@ export default function Posts(){
         marcador:"marcador 2"}
   ]
 
-  function darLike(id) {
+  function darLike(id, x) {
     const coraçao = document.getElementById(id);
     const curtidas = coraçao.parentNode.parentNode.parentNode.children[1].children[1].children[1].children[0];
 
@@ -34,7 +34,10 @@ export default function Posts(){
       coraçao.classList.add('vermelho');
       curtidas.textContent++
 
-    }else{
+    }else if(x !== undefined){
+      return
+    }
+    else{
       coraçao.name = "heart-outline";
       coraçao.classList.remove('vermelho');
       curtidas.textContent--
@@ -46,7 +49,9 @@ export default function Posts(){
 
     if(marcador.name === "bookmark-outline"){
       marcador.name = "bookmark";
-    }else{
+    }
+    
+    else{
       marcador.name = "bookmark-outline";
     }
   }
@@ -66,7 +71,7 @@ export default function Posts(){
               </div>
   
               <div class="conteudo">
-                <img src={props.imagem} />
+                <img src={props.imagem} onClick={() => darLike(props.coraçao, 1)}/>
               </div>
   
               <div class="fundo">
